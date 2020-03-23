@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>神器！解决文件管理器搜索慢！</title>
+      <link href="/archives/d67d3551/"/>
+      <url>/archives/d67d3551/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><p>想必大家都被Windows文件管理器的搜索被坑过吧</p><a id="more"></a> ，等了好久的蓝条，结果。。。<p><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200306194737.png" alt=""><br>而且还时不时就卡死<a href="https://www.landiannews.com/archives/68383.html" rel="external nofollow noreferrer">传送门</a><br>因此，今天给大家安利一个软件——大名鼎鼎的Everything！</p><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>不知道为什么这个软件的搜索速度非常快，不知道作者是用了什么黑科技，基本只要按下回车直接就显示出了结果<img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200306223839.png" alt=""></p><h1 id="使用截图"><a href="#使用截图" class="headerlink" title="使用截图"></a>使用截图</h1><p><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200316202644.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200316202620.png" alt=""></p><h1 id="温馨提示"><a href="#温馨提示" class="headerlink" title="温馨提示"></a>温馨提示</h1><p>通过谷歌搜索简单查询特定字符串后，发现大量暴露的Everything服务器可直接进行访问。这些Everything服务器都是用户开启服务器功能且未设置访问账号密码，导致谷歌爬虫搜索到并将其编入索引中。<br>这意味着任何人只要通过谷歌搜索查找这些字符串就能找到服务器，然后打开并检查这些服务器上的文件和资料。由于国内网络运营商环境差异所以获得公网IP地址的用户并不多 , 没有公网IP地址的情况下倒是不会被谷歌爬到。<br><strong>因此建议关闭Everything内置的服务器保证数据不会泄露</strong><br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200316202924.png" alt=""></p><h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p>官网下载：<a href="https://www.voidtools.com/zh-cn/" rel="external nofollow noreferrer">https://www.voidtools.com/zh-cn/</a></p><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 应用推荐 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> windows </tag>
+            
+            <tag> 搜索 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于实现Hexo多端撰写博文的一些思路</title>
+      <link href="/archives/3639f97b/"/>
+      <url>/archives/3639f97b/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><p>Hexo是一个轻量级的博客框架，但是你就会发现，写博文真是一个令人头痛的事情：不能在多个设备撰写博文，一旦换设备就会极其麻烦，这里就跟大家讲讲我对于这个问题的一些心得。</p><a id="more"></a><h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><p>在上一篇文章我们讲到可以通过Github Actions 自动部署 Hexo 脚本，这篇文章就是基于自动部署实现的，如果你不了解可以看一下那篇文章<a href="https://blog-abudu.tk/archives/cf8601af/">传送门</a></p><p>既然将博客源代码托管到了Github，就意味着可以使用工具访问这个仓库，进而撰写博文，很巧，我就找到了一个这样的工具：<a href="http://markdown.xiaoshujiang.com" rel="external nofollow noreferrer">小书匠Markdown编辑器</a></p><h1 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h1><h2 id="创建Token"><a href="#创建Token" class="headerlink" title="创建Token"></a>创建Token</h2><p>首先要新建一个Github的Token用于连接小书匠和Github，这里就放一张之前的图吧：<br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200229172348.png" alt=""></p><h2 id="连接小书匠"><a href="#连接小书匠" class="headerlink" title="连接小书匠"></a>连接小书匠</h2><p>点击小书匠编辑器左上角的标志，点击绑定，在数据储存里绑定你之前存放源代码的仓库：<br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200304193557.png" alt=""></p><h2 id="修改模板"><a href="#修改模板" class="headerlink" title="修改模板"></a>修改模板</h2><p>退出绑定，点击第二个模板，将模板修改成你Hexo的文章模板<br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200304194026.png" alt=""></p><h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><p>修改完就可以退出来愉快的写文章了，点击新建，写完文章Ctrl+S保存，记得保存在你的文章目录下哦，Action检测到会自动部署</p><h1 id="一些题外话"><a href="#一些题外话" class="headerlink" title="一些题外话"></a>一些题外话</h1><p>不知道百度站长平台是干什么吃的，我十几篇文章都提交上去了，索引量一直还是0，有没有人知道什么回事评论区解答一下<br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200304194509.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200304194601.png" alt=""></p><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 建站 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> 自动部署 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>免费无广告的压缩软件 Bandizip</title>
+      <link href="/archives/6acd1676/"/>
+      <url>/archives/6acd1676/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><p>压缩/解压缩软件可以说是电脑上最不可或缺的工具之一了，一直 WinRAR / WinZip 占据着无数人的桌面，但其实它们都是收费的商业软件，与其用盗版，我们不如寻找免费的正版替代品吧。</p><a id="more"></a><h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>bandizip的最新版添加了广告，这里分享的是最后无广告的6.25版本</p><h1 id="使用截图"><a href="#使用截图" class="headerlink" title="使用截图"></a>使用截图</h1><p><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200302223602.png" alt=""><br>Bandizip v6.25 版本是「Bandizip 最后一个官方无广告免费版」，界面纯净，没有任何篡改浏览器主页现象或流氓行为。而且功能完整丰富无删减，接近付费的专业版，再加上多年来的持续更新也使得这个版本运行极其稳定。<br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200302223603.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200302223604.png" alt=""></p><h1 id="应用官网"><a href="#应用官网" class="headerlink" title="应用官网"></a>应用官网</h1><p><a href="http://www.bandisoft.com/bandizip/" rel="external nofollow noreferrer">http://www.bandisoft.com/bandizip/</a></p><h1 id="应用下载"><a href="#应用下载" class="headerlink" title="应用下载"></a>应用下载</h1><p>Windows：<a href="https://www.lanzous.com/i9vs07a" rel="external nofollow noreferrer">蓝奏云</a><br>Mac：<a href="https://apple.pvxt.net/c/1244234/435400/7639?subId1=ips_dl&u=https%3A%2F%2Fitunes.apple.com%2Fcn%2Fapp%2Fbandizip-%25E5%258E%258B%25E7%25BC%25A9%25E5%2592%258C%25E8%25A7%25A3%25E5%258E%258B%25E7%25BC%25A9%2Fid1265704574%3Fmt%3D12%26at%3D10laHZ" rel="external nofollow noreferrer">AppStore下载</a></p><h1 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h1><p><a href="https://www.iplaysoft.com/bandizip.html" rel="external nofollow noreferrer">https://www.iplaysoft.com/bandizip.html</a></p><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 应用推荐 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 装机必备 </tag>
+            
+            <tag> windows </tag>
+            
+            <tag> mac </tag>
+            
+            <tag> 压缩 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>卸载工具 IObit Uninstaller 中文破解版</title>
+      <link href="/archives/5dc50295/"/>
+      <url>/archives/5dc50295/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><p>IObit Uninstaller是一款功能强大的软件，能够有效地取代Windows自带的卸载功能。通过它，你可以彻底卸载不需要的软件，不留下软件的相关信息，并且不会造成系统崩溃。</p><a id="more"></a><h1 id="使用截图"><a href="#使用截图" class="headerlink" title="使用截图"></a>使用截图</h1><p><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200301201604.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200301201606.png" alt=""><br>清洁和加速电脑：你可能会注意到你的电脑变得越来越慢，因为时间的推移。一些原因是程序无法被删除，未使用的程序，以及卸载程序的残留在内存中堆积。IObit Uninstaller 可以帮助您完全快速地卸载顽固的程序及其残留。甚至在Windows 10和Windows 8中的不受欢迎的应用程序也可以很容易删除。<br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200301201605.png" alt=""><br>除此之外，IObit Uninstaller也把 IE, Firefox 与 Google Chrome 等浏览器的工具栏、插件与拓展等移除功能另外用分页展示，让我们可以在不小心安装了奇奇怪怪的 Toolbar 之后，可以通过移除工具快速选择、移除，甚至还可让我们解决 IE 首页绑架、搜索引擎绑架等问题。</p><h1 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h1><p><strong>本应用仅供交流和学习使用，请在下载后24小时内删除，如果喜欢，请支持正版</strong></p><h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://www.iobit.com/" rel="external nofollow noreferrer">https://www.iobit.com/</a></p><h1 id="校验值"><a href="#校验值" class="headerlink" title="校验值"></a>校验值</h1><p>文件: IObit Uninstaller 9.3.0.11.zip<br>MD5: 1835AD3A6248E34C8352DEDFDB7FAEBB<br>SHA1: BB6058539740C6CCDADC7E1009924625F64033FA<br>CRC32: 60C7AF62</p><h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p>蓝奏云：<a href="https://www.lanzous.com/i9u94uh" rel="external nofollow noreferrer">https://www.lanzous.com/i9u94uh</a><br>百度云: <a href="https://pan.baidu.com/s/1fFcBoh_6sNU4zND3KaW7dQ" rel="external nofollow noreferrer">https://pan.baidu.com/s/1fFcBoh_6sNU4zND3KaW7dQ</a> 提取码: abud</p><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 应用推荐 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 装机必备 </tag>
+            
+            <tag> 卸载 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo自动部署</title>
+      <link href="/archives/cf8601af/"/>
+      <url>/archives/cf8601af/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><p>对于静态博客来说，Hexo是一款很受欢迎的博客生成器。其拥有数百的主题和插件，方便我们部署和自定义博客内容。然而，很多生成器都有一个跟明显的缺点，当网站的文章越来越多时，生成所需要的时间也越来越久。如果电脑效能差的话，部署时间则会更加的久。</p><a id="more"></a><p>为了解决这个问题，采用自动化部署是一个绝佳的选择。现如今提供自动化部署的平台越来越多。像Travis CI，Github Actions。我们只需要把Hexo的目录推送到GitHub去，相关平台监测到对应的Repositories发佈变化，就会自动去执行编译，并把编译好的内容发布到博客Repositories去。</p><h1 id="获取Coding-Token"><a href="#获取Coding-Token" class="headerlink" title="获取Coding Token"></a>获取Coding Token</h1><p>项目设置 –&gt; 开发者选项 –&gt; 项目令牌<br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200229171901.png" alt=""><br>权限要给全</p><h1 id="获取Github-Token"><a href="#获取Github-Token" class="headerlink" title="获取Github Token"></a>获取Github Token</h1><p>Personal settings –&gt; Developer settings –&gt; Personal access tokens<br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200229172348.png" alt=""><br>权限给repo，public repo，token要存好，不然没了只能重新获取</p><h1 id="创建Actions"><a href="#创建Actions" class="headerlink" title="创建Actions"></a>创建Actions</h1><p>建立一个私有仓库，上传Hexo源代码<br>在Hexo目录的仓库，点击Actions<br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200229165620.png" alt=""><br>然后点击Set up a workflow yourself<br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200229165621.png" alt=""><br>输入以下代码</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">自动部署</span> <span class="string">Hexo</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">master</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">strategy:</span></span><br><span class="line">      <span class="attr">matrix:</span></span><br><span class="line">        <span class="attr">node-version:</span> <span class="string">[10.x]</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">开始运行</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v1</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">设置</span> <span class="string">Node.js</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.node-version</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.node-version</span> <span class="string">&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">安装</span> <span class="string">Hexo</span> <span class="string">CI</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">          <span class="string">export</span> <span class="string">TZ='Asia/Shanghai'</span></span><br><span class="line">          <span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-cli</span> <span class="string">-g</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">缓存</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/cache@v1</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">cache-dependencies</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">$&#123;&#123;runner.OS&#125;&#125;-$&#123;&#123;hashFiles('**/package-lock.json')&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">安装插件</span></span><br><span class="line">        <span class="attr">if:</span> <span class="string">steps.cache-dependencies.outputs.cache-hit</span> <span class="string">!=</span> <span class="string">'true'</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">          <span class="string">npm</span> <span class="string">install</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">部署博客</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">          <span class="string">hexo</span> <span class="string">clean</span> <span class="string">&amp;&amp;</span> <span class="string">hexo</span> <span class="string">g</span> <span class="string">&amp;&amp;</span> <span class="string">hexo</span> <span class="string">douban</span> <span class="string">&amp;&amp;</span> <span class="string">gulp</span></span><br><span class="line">          <span class="string">cd</span> <span class="string">./public</span></span><br><span class="line">          <span class="string">git</span> <span class="string">init</span></span><br><span class="line">          <span class="string">git</span> <span class="string">config</span> <span class="string">user.name</span> <span class="string">"$<span class="template-variable">&#123;&#123;secrets.GIT_NAME&#125;&#125;</span>"</span></span><br><span class="line">          <span class="string">git</span> <span class="string">config</span> <span class="string">user.email</span> <span class="string">"$<span class="template-variable">&#123;&#123;secrets.GIT_EMAIL&#125;&#125;</span>"</span></span><br><span class="line">          <span class="string">git</span> <span class="string">add</span> <span class="string">.</span></span><br><span class="line">          <span class="string">git</span> <span class="string">commit</span> <span class="string">-m</span> <span class="string">"Update"</span></span><br><span class="line">          <span class="string">git</span> <span class="string">push</span> <span class="string">--force</span> <span class="string">--quiet</span> <span class="string">"https://$<span class="template-variable">&#123;&#123;secrets.GH_TOKEN&#125;&#125;</span>@$<span class="template-variable">&#123;&#123;secrets.GH_REF&#125;&#125;</span>"</span> <span class="string">master:master</span></span><br><span class="line">          <span class="string">git</span> <span class="string">push</span> <span class="string">--force</span> <span class="string">--quiet</span> <span class="string">"https://$<span class="template-variable">&#123;&#123;secrets.CD_TOKEN&#125;&#125;</span>@$<span class="template-variable">&#123;&#123;secrets.CD_REF&#125;&#125;</span>"</span> <span class="string">master:master</span></span><br></pre></td></tr></table></figure><p>点击Start commit<br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200229165954.png" alt=""></p><h1 id="设置Secrets"><a href="#设置Secrets" class="headerlink" title="设置Secrets"></a>设置Secrets</h1><p>为了保护重要的资料，需要把这些资料设置到Secrets里，然后通过$引用。<br>在Settings –&gt; Secrets<br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200229170358.png" alt=""><br>这里需要设置6个Secrets</p><table><thead><tr><th>名称</th><th>内容</th></tr></thead><tbody><tr><td>CD_REF</td><td>你要提交到Coding的仓库地址</td></tr><tr><td>CD_TOKEN</td><td>Coding的token，格式为 用户名:密匙</td></tr><tr><td>GH_REF</td><td>你要提交到Github的仓库地址</td></tr><tr><td>GH_TOKEN</td><td>Github的token</td></tr><tr><td>GIT_EMAIL</td><td>你Git的邮箱</td></tr><tr><td>GIT_NAME</td><td>你Git的名字</td></tr></tbody></table><h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><p>随便修改一个东西，比如提交一篇文章，就可以看到变化了</p><h1 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h1><p>1.<a href="http://jerryc.me/posts/74006f42/" rel="external nofollow noreferrer">通过travis-ci或者GitHub Actions自动化部署GitHub Pages和Coding Pages</a><br>2.<a href="https://eallion.com/github-actions-hexo-ci/" rel="external nofollow noreferrer">Github Actions 自动部署 Hexo 脚本</a></p><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 建站 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> 建站 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Bmap 简单纯粹的地图软件</title>
+      <link href="/archives/fe796a73/"/>
+      <url>/archives/fe796a73/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><p>Bmap，简单的双地图应用。可任意切换/高德地图数据源，致力与满足日常生活的出行需求。具有步行、公交、骑行、驾驶等出行方案，查看街景。</p><a id="more"></a><h1 id="用户评论"><a href="#用户评论" class="headerlink" title="用户评论"></a>用户评论</h1><p>Bmap地图是一款第三方地图应用，现在比刚出来的时候完善了很多，地图源可切换，完全可以应对出行需求了 <a href="https://www.coolapk.com/u/%E5%85%AB%E7%99%BE%E6%A0%87%E5%85%B5" rel="external nofollow noreferrer">@八百标兵</a></p><h1 id="使用截图"><a href="#使用截图" class="headerlink" title="使用截图"></a>使用截图</h1><p><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200227094243.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200227094306.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200227094308.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200227094307.png" alt=""></p><h1 id="新版特性"><a href="#新版特性" class="headerlink" title="新版特性"></a>新版特性</h1><p>1.这是你没有玩过的全新版本，只需体验三分钟，你就会跟我一样爱上这款APP<br>2.服务器迁移（求稳一口气买了三年），旧的版本将无法登录<br>3.新版主页界面修改（若不喜欢可在设置中切换为旧版主页）<br>4.加入会员特权。若有疏漏您可以将您的信息发送邮件<a href="mailto:gfuil@qq.com" rel="external nofollow noreferrer">gfuil@qq.com</a>，我将尽快处理<br>5.小版本更新，做了些会员方面的优化</p><h1 id="权限信息"><a href="#权限信息" class="headerlink" title="权限信息"></a>权限信息</h1><p>· 完全的网络访问权限<br>· 连接WLAN网络和断开连接<br>· 更改网络连接性<br>· 查看WLAN连接<br>· 查看网络连接<br>· 大致位置（基于网络）<br>· 精确位置（基于GPS和网络）<br>· 获取额外的位置信息提供程序命令<br>· android.permission.ACCESS_BACKGROUND_LOCATION<br>· 修改或删除您的USB存储设备中的内容<br>· 读取手机状态和身份<br>· android.permission.REQUEST_INSTALL_PACKAGES<br>· android.permission.FOREGROUND_SERVICE<br>· android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS<br>· 拍摄照片和视频<br>· 控制振动<br>· 防止手机休眠<br>· 录音<br>· 与蓝牙设备配对<br>· 访问蓝牙设置<br>· 读取您的USB存储设备中的内容<br>· android.permission.ACCESS_GPS<br>· 访问USB存储设备的文件系统</p><h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p>酷安：<a href="https://www.coolapk.com/apk/me.gfuil.bmap" rel="external nofollow noreferrer">https://www.coolapk.com/apk/me.gfuil.bmap</a><br>应用宝：<a href="https://sj.qq.com/myapp/detail.htm?apkName=me.gfuil.bmap" rel="external nofollow noreferrer">https://sj.qq.com/myapp/detail.htm?apkName=me.gfuil.bmap</a></p><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 应用推荐 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 安卓 </tag>
+            
+            <tag> 地图 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【强推】Snipaste截图工具</title>
+      <link href="/archives/a816bedd/"/>
+      <url>/archives/a816bedd/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><p>Snipaste 不只是截图，善用贴图功能将帮助你提升工作效率！</p><a id="more"></a><h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>安装后只需按下F1即可截图！</p><h1 id="使用截图"><a href="#使用截图" class="headerlink" title="使用截图"></a>使用截图</h1><p>由于是截图软件不好截图，我就放几张官网的图吧<br><img src="https://i.v2ex.co/N3QEb3VA.png" alt=""><br><img src="https://i.v2ex.co/N3038l46.png" alt=""><br><img src="https://i.v2ex.co/vu1nkxdD.png" alt=""><br><img src="https://i.v2ex.co/TNqoS229.png" alt=""></p><h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p>官网：<a href="https://zh.snipaste.com" rel="external nofollow noreferrer">https://zh.snipaste.com</a></p><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 应用推荐 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 装机必备 </tag>
+            
+            <tag> 截图 </tag>
+            
+            <tag> windows </tag>
+            
+            <tag> mac </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>百度网盘不限速下载器PanDownload v2.2.2</title>
+      <link href="/archives/52483c2e/"/>
+      <url>/archives/52483c2e/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><p>百度网盘不限速下载器 PanDownload 日前已经发布新版 , 此次新版本也是继去年8月份发布更新后的首次更新。</p><a id="more"></a><p>值得注意的是目前该工具已经可以再次不限速进行下载，据我实测目前下载大文件速度可以轻松3MB每秒。<br>而且当前新型冠状病毒疫情期间也建议所有用户尽量不要出门，如果可以的话还是窝在家里看看片吧。</p><h1 id="应用截图"><a href="#应用截图" class="headerlink" title="应用截图"></a>应用截图</h1><p><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/QQ%E6%88%AA%E5%9B%BE20200225105001.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/20200225105534.png" alt=""></p><h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>官网下载：<a href="https://pandownload.com/2.2.2" rel="external nofollow noreferrer">https://pandownload.com/2.2.2</a></p><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 应用推荐 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 百度网盘 </tag>
+            
+            <tag> 下载 </tag>
+            
+            <tag> 不限速 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>本站已接入谷歌广告</title>
+      <link href="/archives/aae4caa1/"/>
+      <url>/archives/aae4caa1/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><p>本站在2020-2-10 接入了广告联盟，为本站带来一些持续的收入。</p><a id="more"></a><p>为了不影响大家的体验，只在网站的评论上方有广告显示。</p><p>这个广告一天大概能给我带来几块钱的收入，为啥不高呢，大概率还是大家都在使用广告拦截工具插件有关。</p><p>广告上面有一些优惠信息，对需要的朋友还是有帮助的，大家支持的话，建议把本站加入广告屏蔽插件的白名单。</p><p>当然，觉得不喜欢的话，大可直接屏蔽，还是希望大家访问本站有一个良好的体验。</p><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 其他 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 本站 </tag>
+            
+            <tag> 广告 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>用Python查询肺炎疫情</title>
+      <link href="/archives/7f4b992/"/>
+      <url>/archives/7f4b992/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><p>懒癌发作了，不写教程了，略略略 ~ ~ ~ 注释自己看吧</p><a id="more"></a><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests,json</span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> base64,os</span><br><span class="line"></span><br><span class="line"><span class="comment">#获取全球数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_data</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment">#这里使用腾讯api</span></span><br><span class="line">    api = <span class="string">'https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5'</span></span><br><span class="line">    data = requests.get(api)</span><br><span class="line">    <span class="comment">#要使用utf8不然会中文乱码</span></span><br><span class="line">    data.encoding = <span class="string">'utf-8'</span></span><br><span class="line">    <span class="comment">#需loads两次不知道为什么</span></span><br><span class="line">    data = json.loads(data.text)</span><br><span class="line">    data = json.loads(data[<span class="string">'data'</span>])[<span class="string">"areaTree"</span>]</span><br><span class="line">    <span class="comment">#print(data)</span></span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line"><span class="comment">#通用查询</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">analytical_data</span><span class="params">(地区,data=get_data<span class="params">()</span>)</span>:</span></span><br><span class="line">    data2 = <span class="number">0</span></span><br><span class="line">    <span class="comment">#设置temp变量用来省略不需要的循环，提高速度</span></span><br><span class="line">    temp = <span class="number">0</span></span><br><span class="line">    <span class="comment">#先查询国家</span></span><br><span class="line">    <span class="comment">#遍历所有国家</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">        <span class="keyword">if</span> i[<span class="string">'name'</span>] == 地区:</span><br><span class="line">            <span class="comment">#先检测如果temp为"1"直接退出（由于是第一个其实可以去掉）</span></span><br><span class="line">            <span class="keyword">if</span> temp == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="comment">#记录为data2</span></span><br><span class="line">            data2 = i</span><br><span class="line">            <span class="comment">#打印确诊人数</span></span><br><span class="line">            <span class="comment">#print('确诊人数：'+str(i["total"]["confirm"])+'人')</span></span><br><span class="line">            <span class="comment">#若查询成功将temp标记为"1"</span></span><br><span class="line">            temp = <span class="number">1</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="comment">#如果查询国家失败查询省份</span></span><br><span class="line">    <span class="keyword">if</span> temp==<span class="number">0</span>:</span><br><span class="line">        <span class="comment">#遍历所有省份</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> data[<span class="number">0</span>][<span class="string">"children"</span>]:</span><br><span class="line">            <span class="keyword">if</span> i[<span class="string">'name'</span>] == 地区:</span><br><span class="line">                <span class="comment">#记录为data2</span></span><br><span class="line">                data2 = i</span><br><span class="line">                <span class="comment">#打印确诊人数</span></span><br><span class="line">                <span class="comment">#print('确诊人数：'+str(i["total"]["confirm"])+'人')</span></span><br><span class="line">                <span class="comment">#若查询成功将temp标记为"1"</span></span><br><span class="line">                temp = <span class="number">1</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    <span class="comment">#如果查询国家失败查询城市</span></span><br><span class="line">    <span class="keyword">if</span> temp==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> data[<span class="number">0</span>][<span class="string">"children"</span>]:</span><br><span class="line">            <span class="comment">#遍历所有省份</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> i[<span class="string">"children"</span>]:</span><br><span class="line">                <span class="comment">#遍历每个省份的全部城市</span></span><br><span class="line">                <span class="keyword">if</span> j[<span class="string">'name'</span>] == 地区:</span><br><span class="line">                    <span class="comment">#若查询成功将temp标记为"1"</span></span><br><span class="line">                    temp = <span class="number">1</span></span><br><span class="line">                    <span class="comment">#记录为data2</span></span><br><span class="line">                    data2 = j</span><br><span class="line">                    <span class="comment">#打印确诊人数</span></span><br><span class="line">                    <span class="comment">#print('确诊人数：'+ str(j["total"]["confirm"])+'人')</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                <span class="comment">#由于双重循环需要退出两次</span></span><br><span class="line">                <span class="keyword">if</span> temp == <span class="number">1</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">    <span class="comment">#返回data2</span></span><br><span class="line">    <span class="keyword">return</span> data2</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    data = analytical_data(inputbox.get())</span><br><span class="line">    t.delete(<span class="string">'1.0'</span>, <span class="string">'end'</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        var = <span class="string">'关于&#123;&#125;的最新疫情信息如下：\n确诊人数：&#123;&#125;\n疑似人数：&#123;&#125;\n治愈人数：&#123;&#125;\n死亡人数：&#123;&#125;\n新增确诊：&#123;&#125;\n由于API问题疑似可能不准\n武汉加油！中国加油！'</span></span><br><span class="line">        var = var.format(inputbox.get(),str(data[<span class="string">"total"</span>][<span class="string">"confirm"</span>])+<span class="string">'人'</span>,str(data[<span class="string">"total"</span>][<span class="string">"suspect"</span>]) + <span class="string">'人'</span>,str(data[<span class="string">"total"</span>][<span class="string">"heal"</span>])+<span class="string">'人'</span>,str(data[<span class="string">"total"</span>][<span class="string">"dead"</span>])+<span class="string">'人'</span>,str(data[<span class="string">"today"</span>][<span class="string">"confirm"</span>])+<span class="string">'人'</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        var = <span class="string">'未找到地区:'</span>+inputbox.get()</span><br><span class="line">    t.insert(<span class="string">'end'</span>,var)</span><br><span class="line">window = Tk()</span><br><span class="line">window.title(<span class="string">'新冠肺炎疫情查询'</span>)</span><br><span class="line">window.geometry(<span class="string">'375x330'</span>)</span><br><span class="line">window.resizable(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">diqu_text = Label(window,text=<span class="string">'地区'</span>,width=<span class="number">3</span>,height=<span class="number">1</span>,font=(<span class="string">'微软雅黑'</span>,<span class="number">12</span>))</span><br><span class="line">diqu_text.place(x=<span class="number">50</span>,y=<span class="number">30</span>, anchor=<span class="string">'nw'</span>)</span><br><span class="line">inputbox = Entry(window,width=<span class="number">10</span>,font=(<span class="string">'微软雅黑'</span>,<span class="number">16</span>))</span><br><span class="line">inputbox.place(x=<span class="number">110</span>,y=<span class="number">30</span>, anchor=<span class="string">'nw'</span>)</span><br><span class="line">t = Text(window,height=<span class="number">11</span>,width=<span class="number">35</span>,font=(<span class="string">'微软雅黑'</span>,<span class="number">10</span>))</span><br><span class="line">t.place(x=<span class="number">40</span>,y=<span class="number">80</span>)</span><br><span class="line">b = Button(window,text=<span class="string">'查询'</span>,width=<span class="number">6</span>,height=<span class="number">1</span>,font=(<span class="string">'微软雅黑'</span>,<span class="number">10</span>),command=main)</span><br><span class="line">b.place(x=<span class="number">250</span>,y=<span class="number">29</span>, anchor=<span class="string">'nw'</span>)</span><br><span class="line"></span><br><span class="line">window.mainloop()</span><br></pre></td></tr></table></figure><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程代码 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 新型冠状病毒 </tag>
+            
+            <tag> 爬虫 </tag>
+            
+            <tag> Python </tag>
+            
+            <tag> 疫情 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>迅雷X v10.1.29.698 去广告清爽版</title>
+      <link href="/archives/17003c53/"/>
+      <url>/archives/17003c53/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><p>“迅雷X”是迅雷公司继“迅雷9”之后推出的全新版本的迅雷，它是迅雷9的升级版本，界面上继承了迅雷9。“X”既代表新一代版本符号，也代表产品团队不断探索的“初心”，最终版本将从界面、框架、选项设置、下载引擎等进行全面升级，让迅雷客户端更加“高效、个性、智能”。</p><a id="more"></a><p><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn//images/20200223154804.jpg" alt=""><br>从迅雷X 10.1版本开始，迅雷官方采用Electron软件框架完全重写了迅雷主界面。使用新框架的迅雷X可以完美支持2K、4K等高清显示屏，界面中的文字渲染也更加清晰锐利。从技术层面来说，新框架的界面绘制、事件处理等方面比老框架更加灵活高效，因此界面的流畅度也显著优于老框架的迅雷。<br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn//images/20200223162844.png" alt=""><br>迅雷X支持下一代互联网协议IPv6，在迅雷客户端中，包括“下载引擎”在内的所有涉及网络通讯的模块，都进行了支持IPv6的改造，并在此版本中进行预部署。理论上，未来IPv6正式启用后，迅雷X的P2P连通率将会大幅提升，从而带来下载速度、下载成功率的显著增加。</p><h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p><a href="http://yangtai.xunlei.com/" rel="external nofollow noreferrer">http://yangtai.xunlei.com/</a><br>优化BT节点连接策略，提升BT任务下载速度<br>优化超级皮肤的细节体验<br>修复输入文字可能误触“多选下载”的问题<br>修复部分崩溃问题</p><h1 id="破解内容"><a href="#破解内容" class="headerlink" title="破解内容"></a>破解内容</h1><p><em>彻底移除右侧首页内容，默认隐藏右侧区域（窗口最大化可以打开设置页面）<br>破解本地SVIP10年费会员，免费畅享会员皮肤、迅雷播放锚点曲线会员特权；<br>彻底移除右侧首页内容，默认隐藏右侧区域（窗口最大化可以打开设置页面）<br>修正落尘之木改的js文件存在的问题，即默认宽度会员等级和皮肤按钮重叠；<br>去主界面顶部搜索框、消息管理器；<br>去主界面右侧任务详情页面：影评区域、网页标签、大家都在看；<br>去主界面底部图片广告、去下载任务文字广告、去右下角广告弹窗；<br>去个性化皮肤界面文字链接”开通会员”，移除非会员开通会员按钮；<br>去主界面用户等级旁边的”续费福利”（目前全是推送的狂欢礼包广告）<br>去工具栏：领红包按钮（领他瞄的，狂欢礼包广告呀）、手机迅雷按钮；<br>去主菜单：下载诊断工具、书签、开机启动、帮助反馈、检查更新、获取个性化迅雷；<br>精简一大堆不必要的js插件，通过解密插件内 js 文件修改禁止后台强制下载更新版本；<br>精简一大堆不必要的文件，例如：迅雷基础服务、浏览器内核引擎、在线升级组件等；<br>极限精简一大堆浏览器内核文件，官方版简直没法用，进程服务驱动给你来个全家桶；<br>保留迅雷播放组件，支持边下边播功能；解密插件js文件给主菜单添加离线空间下载；<br>保留字幕搜索、迅雷口令、组队加速功能；支持谷歌浏览器、火狐浏览器等接管下载；</em></p><h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>运行主程序后提示“应用程序的配置不正确”，这是因为您没有安装系统运行库，安装全运行库后方可解决。(链接: <a href="https://pan.baidu.com/s/12FqgUscAwgG9tAX2Ki_h4Q" rel="external nofollow noreferrer">https://pan.baidu.com/s/12FqgUscAwgG9tAX2Ki_h4Q</a> 提取码: abud)</p><h1 id="校验信息"><a href="#校验信息" class="headerlink" title="校验信息"></a>校验信息</h1><p>文件: 迅雷X版v10.1.29.698去广告版.7z<br>MD5: 26C8CC0F745D751EE6BA93CFE8BACF85<br>SHA1: 775960FE596117BFA909E9FFF08257885F459A35<br>CRC32: 3FB026C6</p><h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>百度云：<a href="https://pan.baidu.com/s/1o9NUpi0SSoZ5agYS8aTVmQ" rel="external nofollow noreferrer">https://pan.baidu.com/s/1o9NUpi0SSoZ5agYS8aTVmQ</a> 提取码: abud</p><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 应用推荐 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 破解 </tag>
+            
+            <tag> 下载 </tag>
+            
+            <tag> 迅雷 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Adobe Photoshop 2020(21.0.3.91) 嬴政天下特别版</title>
+      <link href="/archives/70bc25b3/"/>
+      <url>/archives/70bc25b3/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><p>Adobe Photoshop 拥有智能型锐利化、智能型增加取样、3D 场景面板、建立晕映效果、修图、水印、羽化等等功能，为用户在处理图片上带来了非常大的帮助。并且软件采用了全新的启动界面，让软件的整个界面看起来更加的简洁大方、与时俱进。<br>新版本的Adobe去掉了CC，以后应该会直接命名或者加PRO命名。</p><a id="more"></a><h1 id="修改说明"><a href="#修改说明" class="headerlink" title="修改说明"></a>修改说明</h1><p><strong>本应用仅供交流和学习使用，请在下载后24小时内删除，如果喜欢，请支持正版</strong><br>破解来自<a href="https://weibo.com/vposy" rel="external nofollow noreferrer">嬴政天下</a><br><a href="https://weibo.com/vposy" rel="external nofollow noreferrer">@vposy</a><br>和谐完全使用权限<br>修复不登录ID和不联网时可能出现的闪退问题<br>已修复无法保存</p><h1 id="使用截图"><a href="#使用截图" class="headerlink" title="使用截图"></a>使用截图</h1><p><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/ps2020-1.jpg" alt=""><br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/ps2020-2.jpg" alt=""></p><h1 id="校验信息"><a href="#校验信息" class="headerlink" title="校验信息"></a>校验信息</h1><p>文件大小：1940076524 字节<br>MD5 ：EF2A01B5396F7DEAF410E984A568779B<br>SHA1 ：FD18B03C536E7A095CCD8A8147A2184E0621F7BA</p><h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p>百度云：<a href="https://pan.baidu.com/s/1G_ZjDegeEmNRkj9bW6OnmQ" rel="external nofollow noreferrer">https://pan.baidu.com/s/1G_ZjDegeEmNRkj9bW6OnmQ</a><br>提取码：abud</p><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 应用推荐 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> PS </tag>
+            
+            <tag> Adobe </tag>
+            
+            <tag> 破解 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>修改评论头像</title>
+      <link href="/archives/13678375/"/>
+      <url>/archives/13678375/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><p>大家肯定会发现，在评论时看不到自己的头像。<br>那么今天，我就教大家如何设置评论的用户头像。</p><a id="more"></a><h1 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h1><p>访问 <a href="https://cn.gravatar.com" rel="external nofollow noreferrer">Gravatar头像托管网站</a> ，点击网页右上角的“Sign In”按钮，注册一个账号。<br>注意：<br>1、邮箱必须要和你在啊不都评论时输入的邮箱是一样，不然可能不会显示出头像的。<br>2、推荐使用163邮箱，尽量不要用QQ邮箱，因为可能无法收到验证邮件，会被腾讯给强制拦截的。<br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/2e815-005zv1pegy1fxjjey2n04j30gw0d70sv.jpg" alt=""></p><h1 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h1><p>注册完成后，按照提示操作激活账号，在 Gravatar 网站的用户中心上传你自己的个性头像保存即可。<br><img src="https://cdn.jsdelivr.net/gh/am-abudu/cdn/images/bb3f4-005zv1pegy1fxjjeykflbj30gw0b2q36.jpg" alt=""></p><h1 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h1><p>访问啊不都，Shift+F5 强制刷新网页，这个时候就应该可以看到头像了。</p><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+            <tag> Gravatar </tag>
+            
+            <tag> valine </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>武汉加油！</title>
+      <link href="/archives/56088/"/>
+      <url>/archives/56088/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><h2 id="向坚守第一线的医护人员致敬！加油！武汉！"><a href="#向坚守第一线的医护人员致敬！加油！武汉！" class="headerlink" title="向坚守第一线的医护人员致敬！加油！武汉！"></a>向坚守第一线的医护人员致敬！加油！武汉！</h2><a id="more"></a><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 其他 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 武汉 </tag>
+            
+            <tag> 新型冠状病毒 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>IDM超线程</title>
+      <link href="/archives/34ad5bda/"/>
+      <url>/archives/34ad5bda/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><p>IDM下载工具非常好用，如果你还不知道怎么下载，请看我的<a href="https://blog-abudu.tk/archives/b5671cb8/">上一篇文章</a> 。但是它也有一个致命缺陷：就是最大线程数只能到32，这使得在下载时不能达到最快，今天我们就来聊聊：<strong>IDM超线程</strong>。</p><a id="more"></a><h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>我们发现，IDM的线程数由注册表的 <strong>HKEY_CURRENT_USER\Software\DownloadManager</strong> 控制，我们只需要修改这个值就可以做到超线程。而这是一个十六进制数，我们修改时要注意转换</p><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>创建一个.txt文件，把下文代码复制到此文件里，然后把文件后缀改成.reg，关闭所有IDM进程，双击运行即可。<br>64线程：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\DownloadManager]</span><br><span class="line">&quot;MaxConnectionsNumber&quot;&#x3D;dword:00000020</span><br></pre></td></tr></table></figure><p>128线程：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\DownloadManager]</span><br><span class="line">&quot;MaxConnectionsNumber&quot;&#x3D;dword:00000080</span><br></pre></td></tr></table></figure><p>256线程：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\DownloadManager]</span><br><span class="line">&quot;MaxConnectionsNumber&quot;&#x3D;dword:00000100</span><br></pre></td></tr></table></figure><h1 id="制作完成后的文件（小白福利）"><a href="#制作完成后的文件（小白福利）" class="headerlink" title="制作完成后的文件（小白福利）"></a>制作完成后的文件（小白福利）</h1><p>当然了，会有一些小白不会，我这里把制作好的.reg文件分享出来<br>下载地址：<a href="http://t.cn/AiFbm23h" rel="external nofollow noreferrer">蓝奏云</a> 密码：c40v</p><h1 id="完成截图"><a href="#完成截图" class="headerlink" title="完成截图"></a>完成截图</h1><p><img src="https://i.loli.net/2019/12/27/ExwDXVSd4LsUMcR.png" alt=""><br>完成后应该是这样的，并不会显示UI，但是下载速度是有的！<img src="http://ww3.sinaimg.cn/large/9150e4e5ly1fsgu3282c1g208c08c74b.gif" alt=""></p><h1 id="最后的最后"><a href="#最后的最后" class="headerlink" title="最后的最后"></a>最后的最后</h1><p>如果喜欢，别忘了Ctrl+D收藏本站哦</p><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> IDM </tag>
+            
+            <tag> 多线程 </tag>
+            
+            <tag> 实用技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何优雅地使用百度网盘</title>
+      <link href="/archives/5815d20a/"/>
+      <url>/archives/5815d20a/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><p>百度网盘，自登陆之初就以它免费的2T储存吸引了广大网友。然而百度云下载速度太慢，显然是被限速了。今天，我们来谈谈<strong>破解百度网盘限速</strong>。</p><a id="more"></a><h1 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h1><p>使用的宽带是电信100M，百度限速后的下载速度只有 150KB/s，而理论下载速度是可以达到 12M/s 的。如果你的下载量较大，建议充值百度官方 VIP 会员，我们也鼓励付费使用增值服务。但如果只是偶尔的下载，请继续阅读以下文章：</p><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h3 id="IDM多线程下载工具"><a href="#IDM多线程下载工具" class="headerlink" title="IDM多线程下载工具"></a>IDM多线程下载工具</h3><p>官方网站：<a href="http://www.internetdownloadmanager.com" rel="external nofollow noreferrer">http://www.internetdownloadmanager.com</a><br>参考上一篇文章：<a href="https://blog-abudu.tk/archives/b5671cb8/">下载神器 Internet Download Manager 完美破解版</a></p><h2 id="浏览器配置"><a href="#浏览器配置" class="headerlink" title="浏览器配置"></a>浏览器配置</h2><p>浏览器可以使用由<a href="www.runningcheese.com">奔跑的奶酪</a>制作的<a href="www.lanzous.com/b851998">Chrome定制浏览器</a>或<a href="www.lanzous.com/b851982">Firefox定制浏览器</a>也可以自己配置<a href="http://www.tampermonkey.net" rel="external nofollow noreferrer">油猴</a>和<a href="https://www.runningcheese.com/go?url=https://greasyfork.org/zh-CN/scripts/378301" rel="external nofollow noreferrer">网盘助手</a>（此处特殊字体的字可以点击）<br>配置完成后应该是这个样子<img src="https://i.loli.net/2019/12/26/umZAzC6jLp5Y1O4.png" alt=""></p><h1 id="开始下载"><a href="#开始下载" class="headerlink" title="开始下载"></a>开始下载</h1><p>接下来就简单多了，别废话，看图：<br><img src="https://i.loli.net/2019/12/26/MXF51YCGHuWzBj3.gif" alt=""><br>这里要注意应用ID是250528，这个ID是博主实测最快的，如果失效了可以换个账号，或更换ID，这里提供几个ID：250528 、265486、309847；266719、778750<br><img src="https://i.loli.net/2019/12/26/SlQoycKIiW1ELRp.png" alt="修改ID"><br>实测百兆光纤最高速度可以到4M/s，虽然没跑满，但速度已经和百度网盘开会员差不多快了<img src="https://i.loli.net/2019/12/26/6Yn2lvsjA48NhaS.png" alt=""></p><h1 id="在最后"><a href="#在最后" class="headerlink" title="在最后"></a>在最后</h1><p>建议IDM设置里线程数拉满，以达到最高下载速度，理论线程越多速度越快，也越容易崩</p><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 百度云 </tag>
+            
+            <tag> 百度网盘 </tag>
+            
+            <tag> IDM </tag>
+            
+            <tag> 下载 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>下载神器 Internet Download Manager 完美破解版</title>
+      <link href="/archives/b5671cb8/"/>
+      <url>/archives/b5671cb8/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>Internet Download Manager，简称 IDM，是国外的一款优秀下载工具。目前凭借着下载计算的速度优势在外媒网站中均受好评，现在已被多数国人熟知。Internet Download Manager 提升你的下载速度最多达5倍，安排下载时程，带有续传功能，可以恢复因为断线、网络问题、计算机当机甚至无预警的停电导致下传到一半的资料。</p><a id="more"></a><p>IDM具有动态文件分割、多重下载点技术，而且它会重复使用现有的联机，而不需再重新联机登入一遍。智能in-speed技术会动态地将所有设定应用到某种联机类型，以充分利用下载速度。IDM支持下载队列、防火墙、代理服务器和映摄服务器、重新导向、cookies、需要验证的目录，以及各种不同的服务器平台，它紧密地与Internet Explorer和Netscape Communicator结合，自动地处理你的下载需求。此外，IDM还具有下载逻辑最佳化功能、检查病毒，以及多种偏好设定。<br><img src="https://i.loli.net/2019/12/27/yuesbxL5EOnrdZf.png" alt="视频嗅探下载"></p><h3 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h3><p><a href="http://www.internetdownloadmanager.com/" rel="external nofollow noreferrer">IDM官网</a></p><h3 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h3><p>本资源包含破解内容，破解来自<a href="https://www.repaik.com" rel="external nofollow noreferrer">睿派克论坛</a><br><strong>本应用仅供交流和学习使用，请在下载后24小时内删除，如果喜欢，请支持正版</strong></p><h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p><a href="https://www.lanzous.com/i88yaxi" rel="external nofollow noreferrer">蓝奏云</a></p><h3 id="预告"><a href="#预告" class="headerlink" title="预告"></a>预告</h3><p>鉴于IDM下载工具的多线程特性，可以实现百度网盘高速下载，这个我会在下篇文章讲解</p><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 应用推荐 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 破解 </tag>
+            
+            <tag> 下载 </tag>
+            
+            <tag> 下载工具 </tag>
+            
+            <tag> 多线程 </tag>
+            
+            <tag> 装机必备 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>一键获取编程猫素材</title>
+      <link href="/archives/2cb6ea7/"/>
+      <url>/archives/2cb6ea7/</url>
+      
+        <content type="html"><![CDATA[<!-- build time:Mon Mar 23 2020 01:55:06 GMT+0000 (Coordinated Universal Time) --><p>如何<strong>无需金币一键获取编程猫素材</strong></p><a id="more"></a><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#本应用作者by啊不嘟，转载请申明原作</span></span><br><span class="line"><span class="comment">#本作品github开源地址：https://github.com/am-abudu/codemaospider</span></span><br><span class="line"><span class="comment">#此应用仅供交流和学习使用，通过此应用获取的资源请在二十四小时内删除</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">print(<span class="string">'本应用作者by啊不嘟，转载请申明原作'</span>)</span><br><span class="line">print(<span class="string">'本作品github开源地址：https://github.com/am-abudu/codemaospider'</span>)</span><br><span class="line">print(<span class="string">'此应用仅供交流和学习使用，通过此应用获取的资源请在二十四小时内删除'</span>)</span><br><span class="line">print()</span><br><span class="line">print(<span class="string">'###开始运行###'</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    error_code = <span class="string">'0'</span></span><br><span class="line">    w_id = input(<span class="string">'请输入作品ID：'</span>)</span><br><span class="line">    error_code = <span class="string">'1'</span></span><br><span class="line"><span class="comment">###获取带有素材ID的BCMC文件###</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">download_bcmc</span><span class="params">(url)</span>:</span></span><br><span class="line">        <span class="keyword">global</span> name</span><br><span class="line">        name = url.split(<span class="string">'/'</span>)[<span class="number">-1</span>]</span><br><span class="line">    <span class="comment">#    print(name)</span></span><br><span class="line">        net_file = requests.get(url).content.decode()</span><br><span class="line">        <span class="keyword">return</span> net_file</span><br><span class="line"></span><br><span class="line">    api = <span class="string">'https://api.codemao.cn/tiger/work/source/public/'</span>+w_id</span><br><span class="line">    _json = requests.get(api).json()</span><br><span class="line">    base_url = _json[<span class="string">'source_urls'</span>][<span class="number">0</span>]</span><br><span class="line">    <span class="comment">#print(base_url)</span></span><br><span class="line">    error_code = <span class="string">'2'</span></span><br><span class="line">    print(<span class="string">'BCMC文件获取成功！'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">###从带有素材ID的BCMC文件中获取图片素材ID###</span></span><br><span class="line">    bcmc = download_bcmc(base_url)</span><br><span class="line">    bcmcjson=json.loads(bcmc)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        styles = bcmcjson[<span class="string">'theatre'</span>][<span class="string">"styles"</span>]</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        styles = bcmcjson[<span class="string">'resources'</span>]</span><br><span class="line">    <span class="comment">#print(styles)</span></span><br><span class="line">    error_code = <span class="string">'3'</span></span><br><span class="line">    print(<span class="string">'图片素材ID获取成功！'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">###从带有素材ID的BCMC文件中获取音乐素材ID###</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        audio = bcmcjson[<span class="string">'audio'</span>]</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    error_code = <span class="string">'4'</span></span><br><span class="line">    print(<span class="string">'音乐素材ID获取成功'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">###下载图片素材###</span></span><br><span class="line">    print(<span class="string">'开始下载图片！'</span>)</span><br><span class="line">    path = os.getcwd()+<span class="string">'\\'</span>+w_id</span><br><span class="line">    <span class="keyword">if</span> os.path.exists(path):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        os.mkdir(path)</span><br><span class="line">    <span class="keyword">if</span> os.path.exists(path +<span class="string">'\\图片\\'</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        os.mkdir(path +<span class="string">'\\图片\\'</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">download_image</span><span class="params">(url,path,name)</span>:</span></span><br><span class="line">        image_name = name+<span class="string">'.jpg'</span></span><br><span class="line">        <span class="keyword">with</span> open(path +<span class="string">'\\图片\\'</span>+image_name,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            r = requests.get(url).content</span><br><span class="line">            f.write(r)</span><br><span class="line"></span><br><span class="line">    count_max = len(styles)</span><br><span class="line">    count = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> styles:</span><br><span class="line">            <span class="comment">#    print(styles[i]['url'])</span></span><br><span class="line">            styles[i][<span class="string">'url'</span>]</span><br><span class="line">            print(<span class="string">'图片下载中(&#123;&#125;/&#123;&#125;)......'</span>.format(str(count),str(count_max)))</span><br><span class="line">            download_image(styles[i][<span class="string">'url'</span>],path,styles[i][<span class="string">'name'</span>])</span><br><span class="line">            count+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        custom_sprites = styles[<span class="string">'custom_sprites'</span>]</span><br><span class="line">        count_max = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> custom_sprites:</span><br><span class="line">            count_max+=len(custom_sprites[i])</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> custom_sprites:</span><br><span class="line">            <span class="keyword">for</span> i1 <span class="keyword">in</span> custom_sprites[i]:</span><br><span class="line">                print(<span class="string">'图片下载中(&#123;&#125;/&#123;&#125;)......'</span>.format(str(count),str(count_max)))</span><br><span class="line">                download_image(custom_sprites[i][i1][<span class="string">'img'</span>],path,i1)</span><br><span class="line">                count+=<span class="number">1</span></span><br><span class="line">        print(<span class="string">'开始下载背景！'</span>) <span class="comment">#旧平台背景和角色图片是分开放的，这里要注意</span></span><br><span class="line">        count_max = <span class="number">0</span></span><br><span class="line">        count = <span class="number">1</span></span><br><span class="line">        custom_scenes = styles[<span class="string">'custom_scenes'</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> custom_scenes:</span><br><span class="line">            count_max+=len(custom_scenes[i])</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> custom_scenes:</span><br><span class="line">            <span class="keyword">for</span> i1 <span class="keyword">in</span> custom_scenes[i]:</span><br><span class="line">                print(<span class="string">'背景下载中(&#123;&#125;/&#123;&#125;)......'</span>.format(str(count),str(count_max)))</span><br><span class="line">                download_image(custom_scenes[i][i1][<span class="string">'img'</span>],path,i1)</span><br><span class="line">                count+=<span class="number">1</span></span><br><span class="line">    error_code = <span class="string">'5'</span></span><br><span class="line"><span class="comment">###下载音乐素材###</span></span><br><span class="line">    print(<span class="string">'开始下载音乐！'</span>)</span><br><span class="line">    <span class="keyword">if</span> os.path.exists(path +<span class="string">'\\音乐\\'</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        os.mkdir(path +<span class="string">'\\音乐\\'</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">download_audio</span><span class="params">(url,path,name)</span>:</span></span><br><span class="line">        audio_name = name +<span class="string">'.mp3'</span></span><br><span class="line">        <span class="keyword">with</span> open(path +<span class="string">'\\音乐\\'</span>+audio_name,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            r = requests.get(url).content</span><br><span class="line">            f.write(r)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        count_max = len(audio)</span><br><span class="line">        count = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> audio:</span><br><span class="line">            print(<span class="string">'音乐下载中(&#123;&#125;/&#123;&#125;)......'</span>.format(str(count),str(count_max)))</span><br><span class="line">        <span class="comment">#    print(audio[i]['url'])</span></span><br><span class="line">            download_audio(audio[i][<span class="string">'url'</span>],path,audio[i][<span class="string">'name'</span>])</span><br><span class="line">            count+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        audio = styles[<span class="string">'custom_audio'</span>]</span><br><span class="line">        count = <span class="number">1</span></span><br><span class="line">        count_max = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> audio:</span><br><span class="line">            count_max+=len(audio[i])</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> audio:</span><br><span class="line">            <span class="keyword">for</span> i1 <span class="keyword">in</span> audio[i]:</span><br><span class="line">                print(<span class="string">'音乐下载中(&#123;&#125;/&#123;&#125;)......'</span>.format(str(count),str(count_max)))</span><br><span class="line">                download_audio(i1[<span class="number">1</span>],path,i1[<span class="number">0</span>])</span><br><span class="line">    print(<span class="string">'下载完毕！已保存至&#123;&#125;，欢迎下次使用！'</span>.format(path))</span><br><span class="line"><span class="comment">###错误码解析###</span></span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">'错误！Error code:&#123;&#125;'</span>.format(error_code))</span><br><span class="line">    <span class="keyword">if</span> error_code == <span class="string">'0'</span>:</span><br><span class="line">    print(<span class="string">'请输入正确的ID！'</span>)</span><br><span class="line">    <span class="keyword">elif</span> error_code == <span class="string">'1'</span>:</span><br><span class="line">    print(<span class="string">'BCMC文件获取失败,请输入正确的ID，或检查网络设置！'</span>)</span><br><span class="line">    <span class="keyword">elif</span> error_code == <span class="string">'2'</span>:</span><br><span class="line">    print(<span class="string">'图片ID获取失败！'</span>)</span><br><span class="line">    print(bcmc)</span><br><span class="line">    <span class="keyword">elif</span> error_code == <span class="string">'3'</span>:</span><br><span class="line">    print(<span class="string">'音乐ID获取失败！'</span>)</span><br><span class="line">    <span class="keyword">elif</span> error_code == <span class="string">'4'</span>:</span><br><span class="line">    print(<span class="string">'图片下载失败，请检查网络设置，或尝试管理员模式运行！'</span>)</span><br><span class="line">    <span class="keyword">elif</span> error_code == <span class="string">'5'</span>:</span><br><span class="line">    print(<span class="string">'音乐下载失败，请检查网络设置，或尝试管理员模式运行！'</span>)</span><br></pre></td></tr></table></figure><p><strong>The End</strong></p><!-- rebuild by neat -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程代码 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 爬虫 </tag>
+            
+            <tag> spider </tag>
+            
+            <tag> python </tag>
+            
+            <tag> codemao </tag>
+            
+            <tag> 编程猫 </tag>
+            
+            <tag> 素材 </tag>
+            
+            <tag> 编程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
